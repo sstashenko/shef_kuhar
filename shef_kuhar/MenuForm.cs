@@ -50,23 +50,23 @@ namespace shef_kuhar
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            // Якщо чекбокс вибрано, фільтруємо рецепти
+            
             if (checkBox1.Checked)
             {
-                // Отримуємо всі рецепти, що готуються 15 хвилин або менше
+                
                 var filteredRecipes = recipes.Where(r => r.PreparationTime <= 1).ToList();
-                recipesDataGridView.DataSource = filteredRecipes; // Оновлюємо джерело даних для відображення
+                recipesDataGridView.DataSource = filteredRecipes; 
             }
             else
             {
-                // Якщо чекбокс не вибрано, відображаємо всі рецепти
-                recipesDataGridView.DataSource = recipes; // Встановлюємо джерело даних на всі рецепти
+                
+                recipesDataGridView.DataSource = recipes;
             }
         }
 
         private void showAllButton_Click(object sender, EventArgs e)
         {
-            recipesDataGridView.DataSource = recipes; // Встановлюємо джерело даних на всі рецепти
+            recipesDataGridView.DataSource = recipes; 
 
         }
     }
