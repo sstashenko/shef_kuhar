@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace shef_kuhar
-{    // Клас Inventory, що працює з універсальним типом T, де T є FoodItem
+{ 
 
     public class Inventory<T> where T : FoodItem
     {
@@ -16,11 +16,11 @@ namespace shef_kuhar
             items = new List<T>();
         }
 
-        public void AddItem(T item)// Метод для додавання елемента
+        public void AddItem(T item)
         {
             items.Add(item);
         }
-        public IEnumerable<T> GetItems() // Метод для отримання елементів
+        public IEnumerable<T> GetItems() 
         {
             return items.AsReadOnly();
         }
@@ -41,12 +41,12 @@ namespace shef_kuhar
             else if (typeof(T) == typeof(Recipe))
             {
                 Console.WriteLine("Введіть інгредієнти:");
-                string ingredients = Console.ReadLine(); // Читаємо інгредієнти
+                string ingredients = Console.ReadLine(); 
                 Console.WriteLine("Введіть інструкції:");
-                string instructions = Console.ReadLine(); // Читаємо інструкції
+                string instructions = Console.ReadLine(); 
                 Console.WriteLine("Введіть кількість порцій:");
-                int servings = Convert.ToInt32(Console.ReadLine()); // Читаємо кількість порцій
-                AddItem((T)(object)new Recipe(name, ingredients, instructions, price, servings)); // Додаємо новий рецепт
+                int servings = Convert.ToInt32(Console.ReadLine()); 
+                AddItem((T)(object)new Recipe(name, ingredients, instructions, price, servings)); 
             }
         }
 
@@ -61,7 +61,7 @@ namespace shef_kuhar
 
 
 }
-// Клас Inventory для FoodItem
+
 public class Inventory<T> where T : FoodItem
 {
     private List<T> items;
@@ -89,7 +89,7 @@ public class Inventory<T> where T : FoodItem
         }
     }
 }
-// Клас для управління рецептами
+
 
 public class RecipeInventory
 {
