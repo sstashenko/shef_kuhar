@@ -21,14 +21,14 @@ namespace shef_kuhar
             this.recipes = recipes;
             dataManager = new DataManager();
 
-            // Завантаження даних при відкритті форми
+            
             LoadRecipes();
         }
 
         private void LoadRecipes()
         {
             recipes = dataManager.LoadRecipesFromXml("recipes.xml");
-            dataGridViewRecipes.DataSource = recipes; // Встановлення джерела даних для DataGridView
+            dataGridViewRecipes.DataSource = recipes; 
 
         }
 
