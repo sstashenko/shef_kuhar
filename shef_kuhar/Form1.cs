@@ -12,59 +12,57 @@ namespace shef_kuhar
 {
     public partial class Form1 : Form
     {
-        private Inventory<Product> inventory; // список продуктів
-        private List<Recipe> recipes; // Список рецептів
-        private DataManager dataManager; // Менеджер даних
+        private Inventory<Product> inventory; 
+        private List<Recipe> recipes; 
+        private DataManager dataManager; 
 
         public Form1()
         {
-            InitializeComponent(); // Ініціалізуємо компоненти форми
-            dataManager = new DataManager(); // Створюємо новий екземпляр DataManager
-            recipes = dataManager.LoadRecipesFromXml("recipes.xml"); // Завантажуємо рецепти з XML файлу
-            var products = dataManager.LoadProductsFromXml("products.xml"); // Завантажуємо продукти з XML файлу
-            inventory = new Inventory<Product>(); // Створюємо інвентар для продуктів
+            InitializeComponent(); 
+            dataManager = new DataManager(); 
+            recipes = dataManager.LoadRecipesFromXml("recipes.xml"); 
+            var products = dataManager.LoadProductsFromXml("products.xml"); 
+            inventory = new Inventory<Product>(); 
             foreach (var product in products)
             {
-                inventory.AddItem(product); // Додаємо продукти в інвентар за допомогою методу AddItem
+                inventory.AddItem(product); 
             }
         }
 
         private void управлінняРецептамиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var recipeForm = new RecipeForm(recipes); // Створюємо нову форму для управління рецептами
-            recipeForm.Show(); // Відкриваємо форму
+            var recipeForm = new RecipeForm(recipes); 
+            recipeForm.Show(); 
         }
 
         private void управлінняПродуктамиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Приклад створення інвентаря
-            var productInventory = new Inventory<Product>(); // Створюємо інвентар для продуктів
-            var recipeInventory = new RecipeInventory(); // Змінюємо на RecipeInventory
-            var recipes = new List<Recipe>(); // Створюємо список рецептів
+            
+            var productInventory = new Inventory<Product>(); 
+            var recipeInventory = new RecipeInventory();
+            var recipes = new List<Recipe>();
 
-            // Створюємо екземпляр ProductForm
-            var productForm = new ProductForm(productInventory); // Передаємо інвентар продуктів до ProductForm
-            productForm.Show(); // Відкриваємо форму
+            var productForm = new ProductForm(productInventory); 
+            productForm.Show(); 
         }
 
         private void менюToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Приклад створення інвентаря
-            var productInventory = new Inventory<Product>(); // Створюємо інвентар для продуктів
-            var recipeInventory = new RecipeInventory(); // Створюємо інвентар для рецептів
+            
+            var productInventory = new Inventory<Product>(); 
+            var recipeInventory = new RecipeInventory(); 
 
-            // Завантаження рецептів з XML
-            var dataManager = new DataManager(); // Створюємо новий екземпляр DataManager
-            var recipes = dataManager.LoadRecipesFromXml("recipes.xml"); // Завантажуємо рецепти з XML
+            
+            var dataManager = new DataManager(); 
+            var recipes = dataManager.LoadRecipesFromXml("recipes.xml"); 
 
-            // Тепер створюємо екземпляр MenuForm, передаючи правильні аргументи
-            var menuForm = new MenuForm(productInventory, recipeInventory, recipes); // Створюємо форму меню
-            menuForm.Show(); // Відкриваємо форму
+            var menuForm = new MenuForm(productInventory, recipeInventory, recipes);
+            menuForm.Show(); 
         }
 
         private void вихідToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit(); // Закриваємо додаток
+            Application.Exit(); 
         }
 
     }
