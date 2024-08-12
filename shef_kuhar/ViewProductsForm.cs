@@ -21,14 +21,14 @@ namespace shef_kuhar
             this.products = products;
             dataManager = new DataManager();
 
-            // Завантаження даних при відкритті форми
+           
             LoadProducts();
         }
 
         private void LoadProducts()
         {
             products = dataManager.LoadProductsFromXml("products.xml");
-            dataGridViewProducts.DataSource = products; // Встановлення джерела даних для DataGridView
+            dataGridViewProducts.DataSource = products;
         }
 
      
